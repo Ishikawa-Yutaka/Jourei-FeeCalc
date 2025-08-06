@@ -1,11 +1,9 @@
 body {
-  background-color: #f0f2f5;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  background-color: #F8F5F2; /* 漆喰のようなオフホワイト */
+  font-family: 'Noto Sans JP', sans-serif; /* 基本フォントを変更 */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #333;
+  color: #4A2E2A; /* 深いこげ茶色 */
 }
 
 .App {
@@ -15,7 +13,7 @@ body {
   padding: 20px;
   background-color: #fff;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(74, 46, 42, 0.2); /* 影も茶色系に */
 }
 
 .App-header {
@@ -25,8 +23,9 @@ body {
 }
 
 h1 {
-  color: #1a237e;
+  color: #4A2E2A; /* 深いこげ茶色 */
   margin-bottom: 30px;
+  font-family: 'BIZ UDMincho', serif; /* タイトルフォントを指定 */
 }
 
 .stopwatch {
@@ -36,65 +35,117 @@ h1 {
 .time-display {
   font-size: 4rem;
   font-weight: 300;
-  color: #1a237e;
+  color: #4A2E2A; /* 深いこげ茶色 */
   margin-bottom: 20px;
   font-family: 'Roboto Mono', monospace;
 }
 
+.controls {
+  display: flex;
+  flex-direction: column; /* 縦並びに変更 */
+  justify-content: center;
+  align-items: center;
+  gap: 15px; /* ボタン間の隙間を調整 */
+}
+
 .controls button {
-  background-color: #3f51b5;
+  background-color: #4A6C4A; /* 苔のような深い緑 */
   color: white;
-  border: none;
-  padding: 12px 24px;
-  margin: 5px;
-  border-radius: 5px;
+  border: 2px solid #4A6C4A;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  margin: 0;
   cursor: pointer;
-  font-size: 1rem;
-  transition: background-color 0.3s ease;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
 }
 
 .controls button:hover {
-  background-color: #303f9f;
+  background-color: #3A563A; /* より深い緑 */
+  border-color: #3A563A;
 }
 
+/* 計測中のボタン（ストップボタン） */
+.controls button.running {
+  background-color: #A94442; /* 落ち着いた赤 */
+  border-color: #A94442;
+}
+
+.controls button.running:hover {
+  background-color: #8C3331; /* より深い赤 */
+  border-color: #8C3331;
+}
+
+/* リセットボタン（四角形のアウトラインスタイル） */
 .controls button:last-child {
-  background-color: #f44336;
+  width: auto;
+  height: auto;
+  padding: 8px 20px; /* サイズを小さく */
+  border-radius: 5px;
+  font-size: 0.9rem; /* フォントサイズを小さく */
+  background-color: transparent;
+  color: #A94442; /* 落ち着いた赤 */
+  border: 2px solid #A94442;
 }
 
 .controls button:last-child:hover {
-  background-color: #d32f2f;
+  background-color: #A94442;
+  color: white;
 }
 
-.fee-display h2 {
-  color: #2e7d32;
-  font-size: 2rem;
-  font-weight: 500;
+.fee-display {
   margin-bottom: 30px;
+}
+
+.fee-label {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.fee-amount {
+  color: #B59410; /* 金色 */
+  font-size: 2.5rem;
+  font-weight: 500;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.fee-currency {
+  font-size: 1.5rem;
+  margin-left: 5px;
+  font-family: 'Noto Sans JP', sans-serif;
 }
 
 .rate-config {
   margin-bottom: 15px;
 }
 
+.rate-config p {
+  color: #555;
+  font-size: 0.9rem;
+  margin-bottom: 10px; /* ボタンとの間隔を調整 */
+  font-family: 'Roboto Mono', monospace;
+}
+
 .rate-config button {
-  background-color: #00796b;
+  background-color: #4A6C4A; /* 苔のような深い緑 */
   color: white;
   border: none;
-  padding: 10px 20px;
+  padding: 6px 16px; /* ボタンをさらに小さく */
   border-radius: 5px;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 0.9rem; /* フォントサイズを調整 */
   transition: background-color 0.3s ease;
 }
 
 .rate-config button:hover {
-  background-color: #004d40;
-}
-
-.rate-config p {
-  color: #555;
-  font-size: 0.9rem;
-  margin-top: 10px;
+  background-color: #3A563A; /* より深い緑 */
 }
 
 /* Modal Styles */
@@ -104,7 +155,7 @@ h1 {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.6);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -122,17 +173,30 @@ h1 {
 }
 
 .modal-content h2 {
-  color: #1a237e;
+  color: #4A2E2A; /* 深いこげ茶色 */
+  margin-bottom: 20px;
+}
+
+.modal-input-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 20px;
 }
 
 .modal-input {
-  width: calc(100% - 20px);
+  width: 120px; /* 幅を狭く */
   padding: 10px;
   font-size: 1.2rem;
-  margin-bottom: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  text-align: right; /* 数字を右寄せ */
+}
+
+.modal-unit {
+  font-size: 1.2rem;
+  margin-left: 5px;
+  color: #4A2E2A;
 }
 
 .modal-actions {
@@ -151,19 +215,19 @@ h1 {
 }
 
 .modal-actions button[type="submit"] {
-  background-color: #3f51b5;
+  background-color: #4A6C4A; /* 苔のような深い緑 */
   color: white;
 }
 
 .modal-actions button[type="submit"]:hover {
-  background-color: #303f9f;
+  background-color: #3A563A; /* より深い緑 */
 }
 
 .modal-actions button[type="button"] {
-  background-color: #f44336;
+  background-color: #A94442; /* 落ち着いた赤 */
   color: white;
 }
 
 .modal-actions button[type="button"]:hover {
-  background-color: #d32f2f;
+  background-color: #8C3331; /* より深い赤 */
 }

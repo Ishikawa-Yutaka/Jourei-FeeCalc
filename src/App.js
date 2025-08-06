@@ -57,7 +57,7 @@ function App() {
 
   const calculateFee = () => {
     const fee = (time / 60) * minuteRate;
-    return fee.toFixed(2); // 小数点以下2桁まで表示
+    return Math.floor(fee); // 小数点以下を切り捨て
   };
 
   const openModal = () => {
@@ -76,18 +76,22 @@ function App() {
         <div className="stopwatch">
           <div className="time-display">{formatTime(time)}</div>
           <div className="controls">
-            <button onClick={handleStartStop}>
+            <button onClick={handleStartStop} className={isRunning ? 'running' : ''}>
               {isRunning ? 'ストップ' : 'スタート'}
             </button>
             <button onClick={handleReset}>リセット</button>
           </div>
         </div>
         <div className="fee-display">
-          <h2>現在の料金: ￥{calculateFee()}</h2>
+          <div className="fee-label">現在の料金</div>
+          <div className="fee-amount">
+            {calculateFee().toLocaleString()}
+            <span className="fee-currency">円</span>
+          </div>
         </div>
         <div className="rate-config">
+          <p>現在の設定単価: {minuteRate.toLocaleString()}円/分</p>
           <button onClick={openModal}>単価を設定</button>
-          <p>現在の設定単価: ￥{minuteRate.toLocaleString()}/分</p>
         </div>
       </header>
 
@@ -96,13 +100,16 @@ function App() {
           <div className="modal-content">
             <h2>分単価を設定</h2>
             <form onSubmit={handleRateSubmit}>
-              <input
-                type="number"
-                value={newRate}
-                onChange={handleRateChange}
-                min="1"
-                className="modal-input"
-              />
+              <div className="modal-input-group">
+                <input
+                  type="number"
+                  value={newRate}
+                  onChange={handleRateChange}
+                  min="1"
+                  className="modal-input"
+                />
+                <span className="modal-unit">円</span>
+              </div>
               <div className="modal-actions">
                 <button type="submit">設定</button>
                 <button type="button" onClick={closeModal}>キャンセル</button>
