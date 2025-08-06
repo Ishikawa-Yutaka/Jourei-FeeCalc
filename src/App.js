@@ -115,7 +115,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>コンサル料金計算</h1>
+        <h1>ご浄霊料金</h1>
         <div className="stopwatch">
           <div className="time-display">{formatTime(time)}</div>
           <div className="controls">
