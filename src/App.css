@@ -1,3 +1,11 @@
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100%; /* htmlとbodyの高さを100%に設定 */
+}
+
 body {
   background-color: #f8f5f2; /* 漆喰のようなオフホワイト */
   font-family: "Noto Sans JP", sans-serif; /* 基本フォントを変更 */
@@ -12,11 +20,11 @@ body {
   margin: 0 auto;
   padding: 0 20px;
   background-color: #fff;
-  height: 100vh;
+  height: 100%; /* 100vhから100%に変更 */
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around; /* centerからspace-aroundに変更 */
 }
 
 .App-header {
@@ -29,7 +37,7 @@ h1 {
   color: #4a2e2a; /* 深いこげ茶色 */
   margin-bottom: 30px;
   font-family: "BIZ UDMincho", serif; /* タイトルフォントを指定 */
-  letter-spacing: 0.13em;
+  /* font-size: 3.5rem; */ /* この行を削除 */
 }
 
 .stopwatch {
@@ -49,7 +57,7 @@ h1 {
   flex-direction: column; /* 縦並びに変更 */
   justify-content: center;
   align-items: center;
-  gap: 20px; /* ボタン間の隙間を調整 */
+  gap: 15px; /* ボタン間の隙間を調整 */
 }
 
 .controls button {
@@ -94,7 +102,7 @@ h1 {
   padding: 8px 20px; /* サイズを小さく */
   border-radius: 5px;
   font-size: 0.9rem; /* フォントサイズを小さく */
-  background-color: #fff; /* 背景を白に */
+  background-color: transparent; /* 背景を透明に */
   color: #a94442; /* 落ち着いた赤 */
   border: 2px solid #a94442;
 }
@@ -102,13 +110,6 @@ h1 {
 .controls button:last-child:active {
   background-color: #a94442; /* 押された時に背景色を赤に */
   color: white;
-}
-
-/* リセットボタンが押された状態 */
-.controls button.reset-pressed {
-  background-color: #a94442; /* 押された時の色を保持 */
-  color: white;
-  border-color: #a94442;
 }
 
 .fee-display {
