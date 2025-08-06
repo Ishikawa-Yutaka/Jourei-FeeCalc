@@ -1,38 +1,169 @@
+body {
+  background-color: #f0f2f5;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #333;
+}
+
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+h1 {
+  color: #1a237e;
+  margin-bottom: 30px;
+}
+
+.stopwatch {
+  margin-bottom: 30px;
+}
+
+.time-display {
+  font-size: 4rem;
+  font-weight: 300;
+  color: #1a237e;
+  margin-bottom: 20px;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.controls button {
+  background-color: #3f51b5;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.controls button:hover {
+  background-color: #303f9f;
+}
+
+.controls button:last-child {
+  background-color: #f44336;
+}
+
+.controls button:last-child:hover {
+  background-color: #d32f2f;
+}
+
+.fee-display h2 {
+  color: #2e7d32;
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 30px;
+}
+
+.rate-config {
+  margin-bottom: 15px;
+}
+
+.rate-config button {
+  background-color: #00796b;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.rate-config button:hover {
+  background-color: #004d40;
+}
+
+.rate-config p {
+  color: #555;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.modal-content h2 {
+  color: #1a237e;
+  margin-bottom: 20px;
+}
+
+.modal-input {
+  width: calc(100% - 20px);
+  padding: 10px;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.modal-actions button {
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.modal-actions button[type="submit"] {
+  background-color: #3f51b5;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.modal-actions button[type="submit"]:hover {
+  background-color: #303f9f;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.modal-actions button[type="button"] {
+  background-color: #f44336;
+  color: white;
+}
+
+.modal-actions button[type="button"]:hover {
+  background-color: #d32f2f;
 }
